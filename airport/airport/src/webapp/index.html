@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .btnModal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+        }
+        .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .button {
+          border: none;
+          color: white;
+          min-width: 200px;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        .center {
+          margin: auto;
+          width: 90%;
+          border: 3px solid #73AD21;
+          padding: 10px;
+        }
+        .hide{
+            display:none;
+        }
+        .button1 {background-color: #4CAF50;} /* Green */
+        .button2 {background-color: #008CBA;} /* Blue */
+        </style>
+
+    <script type="text/javascript" src="./javascript/index.js"></script>
+</head>
+<body>
+<div class="center">
+    <div>
+        <button onclick="showButton('sub1')" class="button button1">Airport</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="Airport" class="button hide sub sub1" style="background-color:grey ;padding:12px 25px;" id="query1">Query</button>
+        <a href="./pages/Airports.html">
+            <button  class="button hide sub sub1" style="background-color:grey ;padding:12px 25px;" id="queryList1">QueryList</button>
+        </a>
+        <button data-name="add1" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="Airport" class="button hide sub sub1" style="background-color:grey ;padding:12px 25px;" id="add1">Add</button>
+        <button data-name="delete1" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="Airport" class="button hide sub sub1" style="background-color:grey ;padding:12px 25px;" id="delete1">Delete</button>
+        <button data-name="update1" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="Airport" class="button hide sub sub1" style="background-color:grey ;padding:12px 25px;" id="update1">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub2')" class="button button2">Booking Agent</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="BookingAgent" class="button hide sub sub2" style="background-color:grey ;padding:12px 25px;" id="query2">Query</button>
+        <a href="./pages/BookingAgents.html">
+        <button class="button hide sub sub2" style="background-color:grey ;padding:12px 25px;" id="queryList2">QueryList</button>
+        </a>
+        <button data-name="add2" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="BookingAgent" class="button hide sub sub2" style="background-color:grey ;padding:12px 25px;" id="add2">Add</button>
+        <button data-name="delete2" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="BookingAgent" class="button hide sub sub2" style="background-color:grey ;padding:12px 25px;" id="delete2">Delete</button>
+        <button data-name="update2" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="BookingAgent" class="button hide sub sub2" style="background-color:grey ;padding:12px 25px;" id="update2">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub3')" class="button button1">Flight</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="Flight" class="button hide sub sub3" style="background-color:grey ;padding:12px 25px;" id="query3">Query</button>
+        <a href="./pages/Flights.html">
+        <button class="button hide sub sub3" style="background-color:grey ;padding:12px 25px;" id="queryList3">QueryList</button>
+        </a>
+        <button data-name="add3" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="Flight" class="button hide sub sub3" style="background-color:grey ;padding:12px 25px;" id="add3">Add</button>
+        <button data-name="delete3" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="Flight" class="button hide sub sub3" style="background-color:grey ;padding:12px 25px;" id="delete3">Delete</button>
+        <button data-name="update3" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="Flight" class="button hide sub sub3" style="background-color:grey ;padding:12px 25px;" id="update3">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub4')" class="button button2">Flight Company</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="FlightCompany" class="button hide sub sub4" style="background-color:grey ;padding:12px 25px;" id="query4">Query</button>
+        <a href="./pages/FlightCompanies.html">
+        <button class="button hide sub sub4" style="background-color:grey ;padding:12px 25px;" id="queryList4">QueryList</button>
+        </a>
+        <button data-name="add4" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="FlightCompany" class="button hide sub sub4" style="background-color:grey ;padding:12px 25px;" id="add4">Add</button>
+        <button data-name="delete4" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="FlightCompany" class="button hide sub sub4" style="background-color:grey ;padding:12px 25px;" id="delete4">Delete</button>
+        <button data-name="update4" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="FlightCompany" class="button hide sub sub4" style="background-color:grey ;padding:12px 25px;" id="update4">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub5')" class="button button1">Purchase</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="Purchase" class="button hide sub sub5" style="background-color:grey ;padding:12px 25px;" id="query5">Query</button>
+        <a href="./pages/purchases.html">
+        <button class="button hide sub sub5" style="background-color:grey ;padding:12px 25px;" id="queryList5">QueryList</button>
+        </a>
+        <button data-name="add5" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="Purchase" class="button hide sub sub5" style="background-color:grey ;padding:12px 25px;" id="add5">Add</button>
+        <button data-name="delete5" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="Purchase" class="button hide sub sub5" style="background-color:grey ;padding:12px 25px;" id="delete5">Delete</button>
+        <button data-name="update5" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="Purchase" class="button hide sub sub5" style="background-color:grey ;padding:12px 25px;" id="update5">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub6')" class="button button2">Store</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="Store" class="button hide sub sub6" style="background-color:grey ;padding:12px 25px;" id="query6">Query</button>
+        <a href="./pages/Stores.html">
+        <button class="button hide sub sub6" style="background-color:grey ;padding:12px 25px;" id="queryList6">QueryList</button>
+        </a>
+        <button  data-name="add6" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="Store" class="button hide sub sub6" style="background-color:grey ;padding:12px 25px;" id="add6">Add</button>
+        <button data-name="delete6" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="Store" class="button hide sub sub6" style="background-color:grey ;padding:12px 25px;" id="delete6">Delete</button>
+        <button data-name="update6" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="Store" class="button hide sub sub6" style="background-color:grey ;padding:12px 25px;" id="update6">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub7')" class="button button1">Supplier</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="Supplier" class="button hide sub sub7" style="background-color:grey ;padding:12px 25px;" id="query7">Query</button>
+        <a href="./pages/Suppliers.html">
+        <button class="button hide sub sub7" style="background-color:grey ;padding:12px 25px;" id="queryList7">QueryList</button>
+        </a>
+        <button data-name="add7" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="Supplier" class="button hide sub sub7" style="background-color:grey ;padding:12px 25px;" id="add7">Add</button>
+        <button data-name="delete7" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="Supplier" class="button hide sub sub7" style="background-color:grey ;padding:12px 25px;" id="delete7">Delete</button>
+        <button data-name="update7" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="Supplier" class="button hide sub sub7" style="background-color:grey ;padding:12px 25px;" id="update7">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub8')" class="button button2">Ticket</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="Ticket" class="button hide sub sub8" style="background-color:grey ;padding:12px 25px;" id="query8">Query</button>
+        <a href="./pages/Tickets.html">
+        <button class="button hide sub sub8" style="background-color:grey ;padding:12px 25px;" id="queryList8">QueryList</button>
+        </a>
+        <button data-name="add8" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="Ticket" class="button hide sub sub8" style="background-color:grey ;padding:12px 25px;" id="add8">Add</button>
+        <button data-name="delete8" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="Ticket" class="button hide sub sub8" style="background-color:grey ;padding:12px 25px;" id="delete8">Delete</button>
+        <button data-name="update8" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="Ticket"class="button hide sub sub8" style="background-color:grey ;padding:12px 25px;" id="update8">Update</button>
+    </div>
+    <div>
+        <button onclick="showButton('sub9')" class="button button1">Worker</button>
+        <button data-toggle="modal" data-target="#subModal" data-there ="query" data-here="Worker" class="button hide sub sub9" style="background-color:grey ;padding:12px 25px;" id="query9">Query</button>
+        <a href="./pages/Workers.html">
+        <button class="button hide sub sub9" style="background-color:grey ;padding:12px 25px;" id="queryList9">QueryList</button>
+        </a>
+        <button data-name="add9" data-toggle="modal" data-target="#subModal" data-there ="add" data-here="Worker" class="button hide sub sub9" style="background-color:grey ;padding:12px 25px;" id="add9">Add</button>
+        <button data-name="delete9" data-toggle="modal" data-target="#subModal" data-there ="delete" data-here="Worker" class="button hide sub sub9" style="background-color:grey ;padding:12px 25px;" id="delete9">Delete</button>
+        <button data-name="update9" data-toggle="modal" data-target="#subModal" data-there ="update" data-here="Worker" class="button hide sub sub9" style="background-color:grey ;padding:12px 25px;" id="update9">Update</button>
+    </div>
+    <div id="query11" class="btnModal">
+        <div class="modal-content">
+            <span class="close"> &times;</span>
+            <p>Some text in the modal..</p>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="modalForm">
+                        <div class="form-group">
+                            <label id="label-id1" class="col-form-label" style="display:none">ID:</label>
+                            <input type="text" class="form-control" id="input-id1" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <label  id="label-id2" class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id2" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <label id="label-id3"  class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id3" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <label id="label-id4" class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id4" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <label id="label-id5" class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id5" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <label  id="label-id6" class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id6" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <label  id="label-id7" class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id7" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <p id="warn1"></p>
+                            <label  id="label-id8" class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id8" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <p id="warn2"></p>
+                            <label  id="label-id9" class="col-form-label" style="display:none"></label>
+                            <input type="text" class="form-control" id="input-id9" style="display:none">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./config.js"></script>
+<script type="text/javascript" src="./javascript/modal.js"></script>
+
+</body>
+</html>
